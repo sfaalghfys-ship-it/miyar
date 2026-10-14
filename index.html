@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مِعيار | MIYAR — نموذج أولي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F5F8;--card:#fff;--ink:#0B2545;--mute:#5A6B7B;--line:#D7DFE6;--navy:#0B2545;--green:#14532D;--g2:#1E7B4B;--gs:#DDF1E6;--warn:#B45309;--ws:#FCEFD5;--bad:#B42318;--bs:#FDE4E1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1522;--card:#12202F;--ink:#E6EDF3;--mute:#9AABBA;--line:#25374A;--g2:#4CC38A;--gs:#123A29;--warn:#E5B04F;--ws:#3A2F16;--bad:#F28B82;--bs:#3E1D1A}}
+:root[data-theme="dark"]{--bg:#0A1522;--card:#12202F;--ink:#E6EDF3;--mute:#9AABBA;--line:#25374A;--g2:#4CC38A;--gs:#123A29;--warn:#E5B04F;--ws:#3A2F16;--bad:#F28B82;--bs:#3E1D1A}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans Arabic',Tahoma,'Segoe UI',sans-serif;line-height:1.7;font-size:15px}
+.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+aside{background:var(--navy);color:#fff;padding:16px 12px;display:flex;flex-direction:column;gap:4px}
+.lg{font-size:26px;font-weight:700;line-height:1.2;padding:4px 8px}.lg small{display:block;font-size:11px;font-weight:400;opacity:.8}
+.sl{font-size:12px;opacity:.75;padding:0 8px 12px;border-bottom:1px solid #ffffff30;margin-bottom:8px}
+aside button{font-family:inherit;font-size:14px;text-align:right;background:none;border:0;color:#fff;padding:9px 12px;border-radius:8px;cursor:pointer;opacity:.85}
+aside button.on{background:var(--green);opacity:1;font-weight:500}aside button:hover{background:#ffffff1c}
+main{padding:16px 20px;max-width:1000px;width:100%}
+.top{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}.top h1{font-size:20px;margin:0}
+select,input,textarea{font-family:inherit;font-size:15px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+input[type=number]{width:90px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
+h2{margin:0 0 6px;font-size:18px}h3{margin:0 0 6px;font-size:15px}p{margin:0 0 8px}.mute{color:var(--mute);font-size:13px}
+.btn{font-family:inherit;font-size:15px;font-weight:500;padding:10px 18px;border-radius:8px;border:1px solid var(--green);background:var(--green);color:#fff;cursor:pointer}
+.btn.g{background:transparent;color:var(--g2);border-color:var(--g2)}.btn[disabled]{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--warn);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}.kpi b{font-size:26px;display:block;line-height:1.2;color:var(--g2)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tag{display:inline-block;padding:1px 10px;border-radius:99px;font-size:12px;font-weight:500}
+.ok{background:var(--gs);color:var(--g2)}.wr{background:var(--ws);color:var(--warn)}.bd{background:var(--bs);color:var(--bad)}
+.note{background:var(--ws);border-radius:8px;padding:8px 12px;font-size:13px;margin-bottom:12px}
+.chip{font-family:inherit;font-size:12px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;direction:ltr}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:right;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
+.sx{overflow-x:auto}
+.st{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);animation:in .3s}
+.dot{width:22px;height:22px;border-radius:50%;background:var(--g2);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+.dot.sp{background:none;border:2px solid var(--g2);border-top-color:transparent;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.bar i{display:block;height:100%;background:var(--g2)}
+.br{display:grid;grid-template-columns:130px 1fr 28px;gap:8px;align-items:center;font-size:13px;margin:5px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fm{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+@media (max-width:760px){.app{grid-template-columns:1fr}aside{flex-direction:row;flex-wrap:wrap;align-items:center}.sl{display:none}.two{grid-template-columns:1fr}main{padding:12px}}
+.lgo{display:inline-grid;place-items:center;border-radius:8px;color:#fff;font-weight:700;vertical-align:middle;flex:none}
+.al{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:8px 10px;border-radius:8px;margin-bottom:6px;font-size:14px}.al.bd{background:var(--bs);color:var(--bad)}.al.wr{background:var(--ws);color:var(--warn)}.al.ok{background:var(--gs);color:var(--g2)}.al .mute{color:inherit;opacity:.85}
+.modal{position:fixed;inset:0;background:#0009;display:grid;place-items:center;z-index:9;padding:16px}.modal>div{background:var(--card);border-radius:12px;padding:18px;max-width:420px;width:100%}
+.ag{margin-bottom:14px}.agh{display:flex;gap:8px;align-items:center;font-weight:700;padding:5px 12px;border-radius:8px;margin-bottom:4px;font-size:14px;width:fit-content}.agh.bd{background:var(--bs);color:var(--bad)}.agh.wr{background:var(--ws);color:var(--warn)}
+.ai{display:flex;align-items:center;gap:10px;padding:9px 4px;border-bottom:1px solid var(--line)}.ai:last-child{border-bottom:0}.ad{width:9px;height:9px;border-radius:50%;flex:none}.ad.bd{background:var(--bad)}.ad.wr{background:var(--warn)}.at{flex:1;font-size:14px}.as{font-size:12px;color:var(--mute);display:flex;gap:5px;align-items:center;white-space:nowrap}
+@media (max-width:560px){.ai{flex-wrap:wrap}.as{width:100%;padding-inline-start:19px}}
+@media print{aside,.top,.noprint{display:none!important}.app{display:block}body{background:#fff;color:#000}.card{break-inside:avoid;border-color:#999}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside><div class="lg">مِعيار<small>MIYAR</small></div><div class="sl">معلومة واحدة، رؤية حكومية متكاملة</div><div id="nav" style="display:contents"></div></aside>
+<main>
+ <div class="top"><h1 id="ttl"></h1><span style="margin-inline-start:auto" class="mute">الصلاحية:</span>
+ <select id="role" aria-label="الصلاحية"><option value="emp">موظف حكومي (تجريبي)</option><option value="ben">مستفيد (تجريبي)</option></select></div>
+ <div class="note noprint">جميع عمليات الربط والبيانات في هذا النموذج تجريبية، وليست اتصالات فعلية بأي نظام حكومي، والمنشآت افتراضية.</div>
+ <div id="view"></div>
+</main>
+</div>
+<div id="pm" class="modal" style="display:none" role="dialog" aria-modal="true" aria-label="السداد"><div id="pmb"></div></div>
+<script>
+/* ===== طبقة البيانات (تُستبدل لاحقًا بواجهات API) ===== */
+const TODAY='2026-10-13';
+const SRC=[{k:'balady',n:'منصة بلدي',f:['name','activity','address','expiry','status'],d:'بيانات الرخصة والنشاط والموقع والصلاحية والمخالفات'},
+{k:'moc',n:'وزارة التجارة',f:['cr','name','activity','status'],d:'السجل التجاري واسم المنشأة وحالتها'},
+{k:'civil',n:'الدفاع المدني (سلامة)',f:['status','expiry','address'],d:'حالة تصريح السلامة'},
+{k:'spl',n:'سبل — العنوان الوطني',f:['address'],d:'العنوان الوطني'},
+{k:'zatca',n:'هيئة الزكاة والضريبة والجمارك',f:['name','status'],d:'حالة التسجيل ذات الصلة'},
+{k:'hr',n:'وزارة الموارد البشرية',f:['status','compliance'],d:'حالة المنشأة والامتثال'},
+{k:'gosi',n:'التأمينات الاجتماعية',f:['status'],d:'بيانات تحقق محددة ومصرح بها'}];
+const SN=Object.fromEntries(SRC.map(s=>[s.k,s.n]));
+const EXT=[{k:'qiwa',n:'منصة قوى',f:[],d:'عقود الموظفين وتوثيقها'},{k:'traffic',n:'المرور',f:[],d:'استمارات المركبات التابعة للمنشأة'},{k:'ins',n:'هيئة التأمين',f:[],d:'وثائق تأمين المركبات'}];
+const ALL=SRC.concat(EXT);
+const dd=d=>Math.round((new Date(d)-new Date(TODAY))/864e5);
+/* الشعارات: ضع شعار كل جهة هنا كرابط data URI، مثال: LOGOS.balady='data:image/svg+xml;base64,...' وإلا يظهر شعار تمثيلي */
+const LOGOS={};
+const LC={balady:['#1B6B3A','ب'],moc:['#0F4C81','ت'],civil:['#B42318','د'],spl:['#6B3FA0','س'],zatca:['#0E7490','ز'],hr:['#C2410C','م'],gosi:['#15803D','ت'],qiwa:['#1D4ED8','ق'],traffic:['#475569','م'],ins:['#9A3412','ت']};
+const logo=(k,z=28)=>LOGOS[k]?`<img src="${LOGOS[k]}" alt="" width="${z}" height="${z}" style="border-radius:6px;object-fit:contain;vertical-align:middle">`:`<span class="lgo" style="width:${z}px;height:${z}px;background:${LC[k][0]};font-size:${Math.round(z*.5)}px" title="شعار تمثيلي" aria-hidden="true">${LC[k][1]}</span>`;
+const FL={name:'اسم المنشأة',activity:'النشاط',address:'العنوان',expiry:'تاريخ الانتهاء',status:'الحالة',cr:'السجل التجاري',compliance:'الامتثال'};
+const A1='بريدة، حي الصفراء، طريق الملك عبدالعزيز',A2='الرياض، حي العليا، طريق العليا',A3='جدة، حي الروضة، شارع الأمير سلطان',A4='الدمام، حي الشاطئ، طريق الكورنيش',A5='الخبر، حي العقربية، شارع الخليج';
+const DB={
+'440291':{balady:{name:'مؤسسة الأفق للخدمات اللوجستية',activity:'خدمات النقل واللوجستيات',address:'الرياض، حي النخيل، طريق الملك فهد، 12342',expiry:'2026-12-05',status:'سارية'},moc:{cr:'1010888999',name:'مؤسسة الأفق للخدمات اللوجستية',activity:'خدمات النقل واللوجستيات',status:'نشط'},civil:{status:'منتهي',expiry:'2026-07-15',address:'الرياض، حي النخيل، طريق الملك فهد، 12342'},spl:{address:'الرياض، حي النخيل، طريق الملك فهد، 12343'},zatca:{name:'مؤسسة الأفق للخدمات اللوجستية',status:'مسجل'},hr:{status:'نشطة',compliance:'ممتثلة'},gosi:{status:'مشتركة'}},
+'1004567890':{balady:{name:'مركز نور الدمام الطبي',activity:'مجمع طبي',address:A4,expiry:'2027-06-30',status:'سارية'},moc:{cr:'2050777888',name:'مركز نور الدمام الطبي',activity:'مجمع طبي',status:'نشط'},civil:{status:'ساري',expiry:'2027-05-01',address:A4},spl:{address:A4},zatca:{name:'مركز نور الدمام الطبي',status:'مسجل'},hr:{status:'نشطة',compliance:'ممتثلة'},gosi:{status:'مشتركة'}},
+'1002345678':{balady:{name:'شركة أفق الرياض للمقاولات',activity:'المقاولات العامة',address:A2,expiry:'2026-05-02',status:'منتهية'},moc:{cr:'1010222333',name:'شركة أفق الرياض للمقاولات المحدودة',activity:'مقاولات المباني',status:'نشط'},civil:{status:'منتهي',expiry:'2026-08-30',address:A2},spl:{address:'الرياض، حي الملز، شارع الستين'},zatca:{status:'غير مسجل'},hr:{status:'نشطة',compliance:'ممتثلة جزئيًا (نطاقات)'},gosi:{}}};
+const EX={
+'440291':{v:[],r:[{n:'تجديد تصريح السلامة',a:'الدفاع المدني (سلامة)',due:'2026-07-15',s:'متأخر'}]},
+'1004567890':{v:[],r:[]},
+'1002345678':{v:[{n:'مخالفة تجاوز حدود الموقع',a:'منصة بلدي',amt:5000,s:'غير مسددة'},{n:'مخالفة سلامة (طفايات الحريق)',a:'الدفاع المدني (سلامة)',amt:3000,s:'غير مسددة'}],r:[{n:'تقديم الإقرار الضريبي الدوري',a:'هيئة الزكاة والضريبة والجمارك',due:'2026-09-30',s:'متأخر'},{n:'استيفاء نسبة التوطين',a:'وزارة الموارد البشرية',due:'2026-12-01',s:'مطلوب'}]}};
+Object.keys(EX).forEach(k=>DB[k].ex=EX[k]);
+const IC='شركة تأمين (تجريبية)';
+const XD={
+'440291':{ct:[{r:'منسق شحن',id:'Q-70101',st:'موثق',end:'2027-05-01'},{r:'محاسب',id:'Q-70102',st:'موثق',end:'2026-11-20'}],veh:[{p:'ش ح ن 5120',t:'شاحنة نقل',reg:'2027-02-14',ins:{c:IC,ty:'شامل',end:'2026-11-02',amt:1450}},{p:'ش ح ن 5121',t:'شاحنة نقل',reg:'2027-02-14',ins:{c:IC,ty:'شامل',end:'2027-08-01',amt:0}}],acts:[{n:'خدمات النقل واللوجستيات',st:'نشط',l:'مرخص'}],fees:[{n:'رسوم تجديد الرخصة البلدية',a:'منصة بلدي',amt:450,s:'مستحقة'}]},
+'1004567890':{ct:[{r:'طبيب عام',id:'Q-60301',st:'موثق',end:'2027-09-01'},{r:'ممرض',id:'Q-60302',st:'موثق',end:'2027-07-15'},{r:'فني مختبر',id:'Q-60303',st:'موثق',end:'2027-06-01'},{r:'موظف استقبال',id:'Q-60304',st:'موثق',end:'2027-08-10'}],veh:[{p:'د م م 1020',t:'سيارة إسعاف',reg:'2027-05-01',ins:{c:IC,ty:'شامل',end:'2027-06-20',amt:0}}],acts:[{n:'مجمع طبي',st:'نشط',l:'مرخص'}],fees:[]},
+'1002345678':{ct:[{r:'مهندس موقع',id:'Q-31001',st:'موثق',end:'2027-02-01'},{r:'مشرف عمال',id:'Q-31002',st:'منتهٍ',end:'2026-08-31'},{r:'عامل بناء',id:'Q-31003',st:'غير موثق',end:'2027-01-12'},{r:'عامل بناء',id:'Q-31004',st:'غير موثق',end:'2027-01-12'}],veh:[{p:'ر ي ض 7788',t:'شاحنة نقل ثقيل',reg:'2026-06-30',ins:{c:IC,ty:'ضد الغير',end:'2026-09-01',amt:3200}},{p:'ر ي ض 7790',t:'حفار',reg:'2027-03-02',ins:{c:IC,ty:'شامل',end:'2027-02-10',amt:0}}],acts:[{n:'المقاولات العامة',st:'نشط',l:'مرخص'},{n:'تجارة مواد البناء',st:'نشط',l:'قيد الترخيص'}],fees:[{n:'غرامة تأخير تجديد السجل التجاري',a:'وزارة التجارة',amt:1500,s:'غير مسددة'}]}};
+Object.keys(XD).forEach(k=>DB[k].x=XD[k]);
+Object.keys(XD).forEach(k=>DB[k].x=XD[k]);
+/* ===== محرك المطابقة والتحليل ===== */
+const GR={name:['balady','moc','zatca'],address:['balady','civil','spl'],activity:['balady','moc']},REF={name:'moc',address:'spl',activity:'moc'};
+function analyze(e){
+ const v=(s,f)=>(e[s]&&e[s][f])||null;let filled=0,total=0,missing=[],items=[],matched=[],avoided=0,found=0;
+ SRC.forEach(s=>{let any=false;s.f.forEach(f=>{total++;if(v(s.k,f)){filled++;any=true}else missing.push({src:s.n,field:FL[f]})});if(any)found++});
+ Object.keys(GR).forEach(g=>{const vs=GR[g].map(s=>({s,v:v(s,g)})).filter(o=>o.v);if(vs.length<2)return;
+  if(new Set(vs.map(o=>o.v)).size===1){matched.push({field:FL[g],val:vs[0].v,n:vs.length});avoided+=vs.length-1}
+  else vs.forEach(o=>items.push({type:(g==='address'&&new Set(vs.map(z=>z.v.split('،').slice(0,-1).join('،'))).size===1)?'اختلاف الرمز البريدي':'اختلاف '+FL[g],src:SN[o.s],val:o.v,ref:o.s===REF[g],action:o.s===REF[g]?'مرجع المطابقة':'اعتماد قيمة '+SN[REF[g]]+' وطلب تحديث '+SN[o.s]}))});
+ [['balady','expiry','الرخصة'],['civil','expiry','التصريح']].forEach(([s,f,w])=>{const x=v(s,f);if(x&&x<TODAY)items.push({type:'انتهاء '+w,src:SN[s],val:x,action:'طلب التجديد قبل متابعة الإجراء'})});
+ if(v('zatca','status')==='غير مسجل')items.push({type:'حالة تسجيل',src:SN.zatca,val:'غير مسجل',action:'إحالة للمراجعة البشرية'});
+ const cp=v('hr','compliance');if(cp&&cp!=='ممتثلة')items.push({type:'امتثال',src:SN.hr,val:cp,action:'مراجعة بشرية لحالة الامتثال'});
+ const ex=e.ex||{v:[],r:[]},bl=e.balady,days=Math.round((new Date(bl.expiry)-new Date(TODAY))/864e5),valid=bl.status==='سارية'&&days>=0;
+ ex.v.filter(x=>x.s!=='مسددة').forEach(x=>items.push({type:'مخالفة',src:x.a,val:x.n+' — '+x.amt.toLocaleString('ar-SA')+' ريال ('+x.s+')',action:'سداد المخالفة أو التظلم منها'}));
+ ex.r.filter(x=>x.s==='متأخر').forEach(x=>items.push({type:'متطلب متأخر',src:x.a,val:x.n+' (الاستحقاق '+x.due+')',action:'استيفاء المتطلب'}));
+ const pend=ex.r.filter(x=>x.s!=='متأخر');
+ const xx=e.x||{},ct=xx.ct||[],veh=xx.veh||[],acts=xx.acts||[];
+ const nd=ct.filter(c=>c.st==='غير موثق').length,ne=ct.filter(c=>c.st==='منتهٍ').length,nl=acts.filter(c=>c.l!=='مرخص').length,nv=veh.filter(c=>dd(c.ins.end)<0).length,nr=veh.filter(c=>dd(c.reg)<0).length;
+ if(nd)items.push({type:'عقود غير موثقة',src:'منصة قوى',val:nd+' من '+ct.length+' عقود',action:'توثيق العقود عبر منصة قوى'});
+ if(ne)items.push({type:'عقود منتهية',src:'منصة قوى',val:ne+' من '+ct.length+' عقود',action:'تجديد العقود أو إنهاؤها نظاميًا'});
+ if(nl)items.push({type:'نشاط بدون ترخيص ساري',src:SN.moc,val:nl+' من '+acts.length+' أنشطة',action:'استخراج الترخيص أو تعديل أنشطة السجل'});
+ if(nv)items.push({type:'تأمين مركبات منتهٍ',src:'هيئة التأمين',val:nv+' من '+veh.length+' مركبات',action:'تجديد وثيقة التأمين'});
+ if(nr)items.push({type:'استمارة مركبات منتهية',src:'المرور',val:nr+' من '+veh.length+' مركبات',action:'تجديد استمارة المركبة'});
+ const conf=items.filter(i=>!i.ref).length;
+ const rd=conf>0?['يحتاج مراجعة بشرية','bd']:(missing.length||pend.length)?['جاهز جزئيًا','wr']:['جاهز للمراجعة','ok'];
+ const recs=items.filter(i=>!i.ref).map(i=>i.action+' — '+i.src+' ('+i.type+')').concat(missing.map(m=>'استكمال «'+m.field+'» من '+m.src)).concat(pend.map(x=>'استيفاء المتطلب «'+x.n+'» ('+x.a+') قبل '+x.due));
+ const types={};items.filter(i=>!i.ref).forEach(i=>types[i.type]=(types[i.type]||0)+1);if(missing.length)types['بيانات ناقصة']=missing.length;
+ pay(e).filter(p=>!ex.v.includes(p.ref)).forEach(p=>recs.push('إشعار المنشأة بسداد «'+p.n+'» ('+p.amt+' ر.س) — '+p.a));
+ return{valid,days,ex,pend,filled,total,pct:Math.round(filled/total*100),missing,items,matched,avoided,found,conf,rd,recs,types};}
+/* ===== الحالة والسجل ===== */
+let page='home',cur=null,busy=false,logs=[],ups=[],pays=[],notes=[],AF='all',PE=null,asm={sf:20,sw:3};
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const NAV={emp:[['home','الرئيسية والاستعلام'],['alerts','مركز التنبيهات'],['integ','الجهات المرتبطة'],['log','سجل العمليات'],['impact','قياس الأثر']],ben:[['ben','ملف منشأتي']]};
+const TT={home:'لوحة التحكم',run:'محرك الاستعلام الموحد',report:'التقرير الحكومي الذكي',alerts:'مركز التنبيهات',integ:'ربط الجهات الحكومية (تجريبي)',log:'سجل عمليات الاستعلام',impact:'لوحة قياس الأثر الحكومي',ben:'بوابة المستفيد'};
+const saved=()=>logs.reduce((s,l)=>s+l.avoided*asm.sf/60+Math.max(l.found-1,0)*asm.sw,0);
+function nav(){const r=$('#role').value;$('#nav').innerHTML=NAV[r].map(n=>`<button data-p="${n[0]}" class="${page===n[0]||(page==='run'||page==='report')&&n[0]==='home'?'on':''}">${n[1]}${n[0]==='alerts'?' ('+AC()+')':''}</button>`).join('');
+ $('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>go(b.dataset.p));$('#ttl').textContent=TT[page]}
+function go(p){page=p;nav();V[p]();window.scrollTo(0,0)}
+$('#role').onchange=()=>go($('#role').value==='emp'?'home':'ben');
+const ELBL={'440291':'سيناريو العرض','1004567890':'ملف سليم','1002345678':'ملف فيه كل الحالات'};
+const chips=()=>Object.keys(DB).map(k=>`<button class="chip" style="direction:rtl" data-n="${k}"><span dir="ltr">${k}</span> · ${ELBL[k]}</button>`).join(' ');
+function bars(t){const m=Math.max(1,...Object.values(t)),ks=Object.keys(t);return ks.length?ks.map(k=>`<div class="br"><span>${k}</span><div class="bar"><i style="width:${t[k]/m*100}%"></i></div><b>${t[k]}</b></div>`).join(''):'<p class="mute">لا توجد بيانات بعد. نفّذ استعلامًا أولًا.</p>'}
+const allTypes=()=>{const t={};logs.forEach(l=>Object.entries(l.types).forEach(([k,n])=>t[k]=(t[k]||0)+n));return t};
+/* ===== الصفحات ===== */
+const V={
+home(){const c=logs.reduce((s,l)=>s+l.conf,0);
+ $('#view').innerHTML=`<div class="grid"><div class="kpi"><b>${Object.keys(DB).length}</b><span class="mute">منشآت في القاعدة التجريبية</span></div><div class="kpi"><b>${logs.length}</b><span class="mute">طلبات الاستعلام</span></div><div class="kpi"><b>${c}</b><span class="mute">تعارضات مكتشفة</span></div><div class="kpi"><b>${Math.round(saved())}</b><span class="mute">دقيقة موفّرة (تقديري)</span></div></div>
+ <div class="card"><h2>استعلام ذكي برقم الرخصة البلدية</h2><p class="mute">أدخل رقم الرخصة فقط، ويتولى مِعيار البحث والربط مع بقية الجهات وإصدار تقرير موحد.</p>
+ <div class="fm"><input id="no" inputmode="numeric" maxlength="10" placeholder="رقم الرخصة (6 إلى 10 أرقام)" dir="ltr" aria-label="رقم الرخصة البلدية" style="flex:1;min-width:200px"><button class="btn" id="q">استعلام ذكي</button><button class="btn g" id="demo">تشغيل سيناريو العرض</button></div>
+ <p id="err" style="color:var(--bad);margin:8px 0 0"></p><p class="mute" style="margin-top:8px">أرقام تجريبية: ${chips()}</p></div>
+ <div class="card"><h3>آخر الاستعلامات</h3>${logs.length?logs.slice(-3).reverse().map(l=>`<div class="row" style="padding:4px 0">${elogo(l.no,22)}<b dir="ltr">${l.no}</b><span>${l.name}</span><span class="tag ${l.rd[1]}">${l.rd[0]}</span></div>`).join(''):'<p class="mute">لا توجد استعلامات بعد.</p>'}</div>`;
+ $('#q').onclick=()=>query($('#no').value.trim());$('#no').onkeydown=e=>{if(e.key==='Enter')query($('#no').value.trim())};
+ $('#demo').onclick=()=>{$('#no').value='440291';query('440291',true)};
+ document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{$('#no').value=b.dataset.n});},
+run(){$('#view').innerHTML='<div class="card" id="rb"></div>'},
+report(){const{no,e,a,demo}=cur,b=e.balady,m=e.moc,c=e.civil;
+ const lic=(s,x,y)=>x?`<span class="tag ${x<TODAY?'bd':'ok'}">${s}: ${y} حتى ${x}</span>`:`<span class="tag wr">${s}: لا توجد بيانات</span>`;
+ $('#view').innerHTML=`${demo?`<div class="card" style="border-color:var(--g2)"><h3>سيناريو العرض: ما الذي حدث؟</h3><ol class="mute" style="margin:0;padding-inline-start:20px"><li>بحث بالرقم <b dir="ltr">${no}</b> فتم العثور على «${esc(b.name)}».</li><li>تم الربط مع ${a.found} من 7 جهات عبر السجل التجاري ${m.cr}.</li><li>اكتُشف اختلاف في العنوان: بلدي والدفاع المدني يسجلان «${esc(b.address)}» بينما سبل يسجل «${esc(e.spl.address)}».</li><li>حالة تصريح السلامة: ${c.status} حتى ${c.expiry}.</li><li>${a.matched.length} حقول متطابقة (${a.matched.map(x=>x.field).join('، ')}) فلا داعي لإعادة طلبها.</li><li>صدر التقرير أدناه، والوقت الموفّر في لوحة الأثر.</li></ol></div>`:''}
+ <div class="card"><div class="row">${elogo(no,44)}<h2 style="margin:0">${esc(b.name)}</h2><span class="tag ${a.rd[1]}">${a.rd[0]}</span><span class="noprint" style="margin-inline-start:auto"><button class="btn" style="padding:6px 14px;font-size:14px" onclick="ntOpen('${no}')">إرسال تنبيه</button></span></div>
+ <p class="mute">رقم الرخصة <span dir="ltr">${no}</span> · السجل التجاري <span dir="ltr">${m.cr||'—'}</span> · ${esc(b.activity)} · ${esc(b.address)}</p>
+ <div class="row"><span class="tag ${a.valid?'ok':'bd'}">${a.valid?'الرخصة سارية — متبقي '+a.days+' يومًا':'الرخصة غير سارية — انتهت منذ '+(-a.days)+' يومًا'}</span>${lic('الرخصة البلدية',b.expiry,b.status)}${lic('تصريح السلامة',c.expiry,c.status||'—')}<span class="tag ${m.status==='نشط'?'ok':'wr'}">السجل التجاري: ${m.status}</span></div></div>
+ <div class="grid"><div class="kpi"><b>${a.pct}%</b><span class="mute">اكتمال البيانات (${a.filled} من ${a.total})</span></div><div class="kpi"><b>${a.matched.length}</b><span class="mute">حقول متطابقة</span></div><div class="kpi"><b>${a.conf}</b><span class="mute">تعارضات</span></div><div class="kpi"><b>${a.missing.length}</b><span class="mute">حقول ناقصة</span></div><div class="kpi"><b>${a.ex.v.filter(x=>x.s!=='مسددة').length}</b><span class="mute">مخالفات غير مسددة</span></div><div class="kpi"><b>${a.ex.r.length}</b><span class="mute">متطلبات حكومية</span></div></div>
+ ${xblocks(e,a)}
+ <div class="card"><h3>الجهات التي تمت مطابقتها</h3><div class="row">${SRC.map(s=>{const has=s.f.some(f=>e[s.k]&&e[s.k][f]);return `<span class="tag ${has?'ok':'bd'}">${logo(s.k,16)} ${has?'✓':'✗'} ${s.n}</span>`}).join('')}</div></div>
+ <div class="card"><h3>المخالفات والمتطلبات الحكومية</h3>${(a.ex.v.length||a.ex.r.length)?'<div class="sx"><table><tr><th>النوع</th><th>البند</th><th>الجهة</th><th>الحالة</th><th>التفاصيل</th></tr>'+a.ex.v.map(x=>`<tr><td>مخالفة</td><td>${x.n}</td><td>${x.a}</td><td><span class="tag ${x.s==='مسددة'?'ok':'bd'}">${x.s}</span></td><td>${x.amt.toLocaleString('ar-SA')} ريال</td></tr>`).join('')+a.ex.r.map(x=>`<tr><td>متطلب</td><td>${x.n}</td><td>${x.a}</td><td><span class="tag ${x.s==='متأخر'?'bd':'wr'}">${x.s}</span></td><td>الاستحقاق ${x.due}</td></tr>`).join('')+'</table></div>':'<p class="mute">لا توجد مخالفات أو متطلبات معلّقة.</p>'}</div>
+ <div class="card"><h3>التعارضات والحالات التي تحتاج مراجعة</h3>${a.items.length?`<div class="sx"><table><tr><th>الجهة</th><th>القيمة المسجلة</th><th>النوع</th><th>الإجراء المقترح</th></tr>${a.items.map(i=>`<tr><td>${i.src}</td><td>${esc(i.val)}</td><td><span class="tag ${i.ref?'ok':'wr'}">${i.type}</span></td><td>${i.action}</td></tr>`).join('')}</table></div>`:'<p class="mute">لا توجد تعارضات.</p>'}
+ ${a.missing.length?`<p class="mute" style="margin-top:8px">بيانات ناقصة: ${a.missing.map(x=>x.field+' ('+x.src+')').join('، ')}</p>`:''}</div>
+ <div class="two"><div class="card"><h3>متطابقة، لا تُطلب من جديد</h3>${a.matched.length?a.matched.map(x=>`<p><span class="tag ok">✓</span> ${x.field}: ${esc(x.val)} <span class="mute">(${x.n} جهات)</span></p>`).join(''):'<p class="mute">لا يوجد.</p>'}</div>
+ <div class="card"><h3>التوصيات للموظف</h3>${a.recs.length?'<ol style="margin:0;padding-inline-start:20px">'+a.recs.map(r=>`<li>${r}</li>`).join('')+'</ol>':'<p>الملف جاهز، لا إجراءات مطلوبة.</p>'}</div></div>
+ <div class="card"><h3>طريقة الحساب</h3><p class="mute">الاكتمال = الحقول المعبأة ÷ إجمالي حقول الجهات السبع (${a.filled}/${a.total}). المتطابق = حقل (الاسم أو العنوان أو النشاط) تتفق قيمته في جهتين فأكثر. التعارض = اختلاف القيمة بين الجهات، أو انتهاء تاريخ، أو حالة تحتاج مراجعة. الجاهزية: «يحتاج مراجعة» إذا وُجد تعارض، و«جاهز جزئيًا» إذا وُجد نقص فقط، وإلا «جاهز للمراجعة». المرجع عند التعارض: وزارة التجارة للاسم والنشاط، وسبل للعنوان. التنبيهات تُحسب من تواريخ الانتهاء (خلال 60 يومًا للرخصة والتصريح والعقود، و30 يومًا للتأمين)، ومن المخالفات والرسوم غير المسددة وعقود قوى غير الموثقة وأنشطة السجل غير المرخصة. هذه قواعد تجريبية.</p></div>
+ <div class="row noprint"><button class="btn" onclick="pr()">تصدير PDF</button><button class="btn g" onclick="pr()">طباعة التقرير</button><span class="mute">اختر «حفظ كـ PDF» من نافذة الطباعة.</span></div>`},
+alerts(){const rows=Object.keys(DB).map(k=>({k,n:DB[k].balady.name,A:alertsOf(DB[k]).filter(t=>AF==='all'||t.s===AF)})).filter(r=>r.A.length),tot=rows.reduce((q,r)=>q+r.A.length,0);
+ $('#view').innerHTML='<div class="row" style="margin-bottom:10px">'+[['all','الكل'],['bd','عاجل'],['wr','تنبيه']].map(x=>`<button class="chip" style="direction:rtl;${AF===x[0]?'background:var(--navy);color:#fff':''}" data-f="${x[0]}">${x[1]}</button>`).join('')+`<span class="mute">${tot} تنبيه</span></div>`+(rows.map(r=>`<div class="card"><div class="row">${elogo(r.k,30)}<h3 style="margin:0">${esc(r.n)}</h3><span class="mute" dir="ltr">${r.k}</span><button class="btn g" style="padding:3px 12px;font-size:13px;margin-inline-start:auto" data-q="${r.k}">فتح التقرير</button></div><div style="margin-top:10px">${alList(r.A)}</div></div>`).join('')||'<p class="mute">لا توجد تنبيهات.</p>');
+ document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{AF=b.dataset.f;V.alerts()});
+ document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{const k=b.dataset.q;cur={no:k,e:DB[k],a:analyze(DB[k]),demo:false};go('report')})},
+integ(){$('#view').innerHTML='<div class="note">الشعارات تمثيلية. لإظهار الشعار الرسمي لكل جهة ضع صورته في المتغير LOGOS داخل الكود، بعد التأكد من إذن استخدامه.</div>'+ALL.map(s=>`<div class="card"><div class="row">${logo(s.k,40)}<h3 style="margin:0">${s.n}</h3><span class="tag wr">اتصال تجريبي</span></div><p class="mute" style="margin-top:6px">${s.d}</p>${s.f.length?`<p class="mute">الحقول: ${s.f.map(f=>FL[f]).join('، ')}</p>`:''}</div>`).join('')},
+
+log(){$('#view').innerHTML=`<div class="card"><h3>الاستعلامات</h3>${logs.length?`<div class="sx"><table><tr><th>الوقت</th><th>الرخصة</th><th>المنشأة</th><th>المنفّذ</th><th>تعارضات</th><th>الجاهزية</th></tr>${logs.slice().reverse().map(l=>`<tr><td>${l.t}</td><td dir="ltr">${l.no}</td><td>${l.name}</td><td>${l.who}</td><td>${l.conf}</td><td><span class="tag ${l.rd[1]}">${l.rd[0]}</span></td></tr>`).join('')}</table></div>`:'<p class="mute">لا توجد عمليات بعد.</p>'}</div>
+ <div class="card"><h3>التنبيهات المرسلة للمنشآت</h3>${notes.length?notes.slice().reverse().map(n=>`<p>${n.t} — ${esc(n.name)}: ${esc(n.text)}</p>`).join(''):'<p class="mute">لا توجد تنبيهات مرسلة.</p>'}</div>
+ <div class="card"><h3>طلبات تحديث من المستفيدين</h3>${ups.length?ups.map(u=>`<p>${u.t} — ${u.name}: ${u.f} ← «${esc(u.v)}» <span class="tag wr">بانتظار المراجعة</span></p>`).join(''):'<p class="mute">لا توجد طلبات.</p>'}</div>`},
+impact(){const n=logs.length,av=logs.reduce((s,l)=>s+l.avoided,0),c=logs.reduce((s,l)=>s+l.conf,0),rv=logs.filter(l=>l.conf>0||l.rd[1]!=='ok').length;
+ $('#view').innerHTML=`<div class="grid"><div class="kpi"><b>${n}</b><span class="mute">عمليات الاستعلام</span></div><div class="kpi"><b>${av}</b><span class="mute">إدخالات تم تجنبها</span></div><div class="kpi"><b>${c}</b><span class="mute">تعارضات</span></div><div class="kpi"><b>${rv}</b><span class="mute">ملفات للمراجعة</span></div><div class="kpi"><b>${Math.round(saved())}</b><span class="mute">دقيقة موفّرة (تقديري)</span></div></div>
+ <div class="card"><h3>افتراضات الحساب (قابلة للتعديل)</h3><div class="fm"><label>ثواني لكل حقل <input type="number" id="sf" min="0" value="${asm.sf}"></label><label>دقائق لكل تنقل بين نظامين <input type="number" id="sw" min="0" value="${asm.sw}"></label></div>
+ <p class="mute" style="margin-top:8px">الوقت الموفّر = (الإدخالات المتجنبة × ثواني الحقل ÷ 60) + (عدد الجهات المربوطة − 1) × دقائق التنقل، لكل استعلام. هذا تقدير مبني على افتراضاتك وليس نتيجة حكومية فعلية.</p></div>
+ <div class="card"><h3>أكثر أنواع التعارض تكرارًا</h3>${bars(allTypes())}</div>`;
+ $('#sf').oninput=e=>{asm.sf=+e.target.value||0;V.impact()};$('#sw').oninput=e=>{asm.sw=+e.target.value||0;V.impact()}},
+ben(){const a=cur&&cur.ben?analyze(cur.ben.e):null;
+ $('#view').innerHTML=`<div class="card"><h2>تابع ملف منشأتك</h2><div class="fm"><input id="bno" inputmode="numeric" maxlength="10" placeholder="رقم الرخصة" dir="ltr" style="flex:1;min-width:200px" aria-label="رقم الرخصة"><button class="btn" id="bq">تتبع</button></div><p id="berr" style="color:var(--bad);margin:8px 0 0"></p><p class="mute">أرقام تجريبية: ${chips()}</p></div>
+ ${a?`<div class="card"><div class="row">${elogo(cur.ben.no,34)}<h3 style="margin:0">${esc(cur.ben.e.balady.name)}</h3><span class="tag ${a.conf||a.missing.length?'wr':'ok'}">${a.conf||a.missing.length?'قيد الاستكمال':'مكتمل'}</span></div>
+ <h3 style="margin-top:12px">بيانات تم التحقق منها (لن تُطلب منك)</h3>${a.matched.length?a.matched.map(x=>`<p><span class="tag ok">✓ موثّق</span> ${x.field}: ${esc(x.val)}</p>`).join(''):'<p class="mute">لا يوجد.</p>'}
+ <h3 style="margin-top:12px">المطلوب منك</h3>${a.missing.map(x=>`<p><span class="tag wr">ناقص</span> ${x.field}</p>`).join('')}${a.items.filter(i=>i.type.startsWith('اختلاف')&&!i.ref).map(i=>`<p><span class="tag wr">يحتاج تأكيد</span> ${i.type.replace('اختلاف ','')}</p>`).join('')||''}${a.items.filter(i=>i.type.startsWith('انتهاء')).map(i=>`<p><span class="tag bd">منتهي</span> ${i.type.replace('انتهاء ','')}</p>`).join('')}${!a.missing.length&&!a.items.length?'<p>لا يوجد مطلوب منك حاليًا.</p>':''}
+ <h3 style="margin-top:12px">حالة الرخصة والمخالفات والمتطلبات</h3><p><span class="tag ${a.valid?'ok':'bd'}">${a.valid?'الرخصة سارية':'الرخصة منتهية'}</span></p>${a.ex.v.map(x=>`<p><span class="tag ${x.s==='مسددة'?'ok':'bd'}">مخالفة ${x.s}</span> ${x.n}</p>`).join('')}${a.ex.r.map(x=>`<p><span class="tag ${x.s==='متأخر'?'bd':'wr'}">متطلب ${x.s}</span> ${x.n} <span class="mute">(حتى ${x.due})</span></p>`).join('')}</div>${alertsPay(cur.ben.e)}${notesCard(cur.ben.no)}<div class="card"><h3 style="margin-top:0">تقديم تحديث</h3><div class="fm"><select id="uf">${a.missing.map(x=>x.field).concat(['العنوان','النشاط']).filter((x,i,r)=>r.indexOf(x)===i).map(x=>`<option>${x}</option>`).join('')}</select><input id="uv" placeholder="القيمة الجديدة" style="flex:1;min-width:160px"><button class="btn" id="us">إرسال</button></div><p class="mute" id="um"></p></div>`:''}`;
+ $('#bq').onclick=()=>{const n=$('#bno').value.trim();if(!DB[n]){$('#berr').textContent='لم يتم العثور على ملف بهذا الرقم.';return}cur=Object.assign(cur||{},{ben:{no:n,e:DB[n]}});V.ben()};
+ document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{$('#bno').value=b.dataset.n});
+ if(a)$('#us').onclick=()=>{const v=$('#uv').value.trim();if(!v){$('#um').textContent='اكتب القيمة أولًا.';return}ups.push({t:new Date().toLocaleTimeString('ar-SA'),name:cur.ben.e.balady.name,f:$('#uf').value,v});$('#um').textContent='تم إرسال طلب التحديث للموظف للمراجعة.';$('#uv').value=''}}};
+function pay(e){const L=[],x=e.x||{};
+ (e.ex.v||[]).forEach(v=>{if(v.s!=='مسددة')L.push({n:'مخالفة: '+v.n,a:v.a,amt:v.amt,ref:v,key:'s'})});
+ (x.fees||[]).forEach(f=>{if(f.s!=='مسددة')L.push({n:f.n,a:f.a,amt:f.amt,ref:f,key:'s'})});
+ (x.veh||[]).forEach(c=>{if(c.ins.amt>0&&dd(c.ins.end)<=30)L.push({n:'تجديد تأمين المركبة '+c.p,a:'هيئة التأمين',amt:c.ins.amt,ref:c.ins,key:'renew'})});
+ return L}
+function alertsOf(e){const A=[],x=e.x||{},b=e.balady,c=e.civil||{},add=(s,t,src)=>A.push({s,t,src});
+ const d=dd(b.expiry);if(d<0)add('bd','الرخصة البلدية منتهية منذ '+(-d)+' يوم','منصة بلدي');else if(d<=60)add('wr','الرخصة البلدية تنتهي خلال '+d+' يوم','منصة بلدي');
+ if(c.expiry){const k=dd(c.expiry);if(k<0)add('bd','تصريح السلامة منتهٍ منذ '+(-k)+' يوم','الدفاع المدني (سلامة)');else if(k<=60)add('wr','تصريح السلامة ينتهي خلال '+k+' يوم','الدفاع المدني (سلامة)')}else add('wr','لا يوجد تصريح سلامة مسجل','الدفاع المدني (سلامة)');
+ (e.ex.v||[]).filter(v=>v.s!=='مسددة').forEach(v=>add('bd','مخالفة غير مسددة: '+v.n+' ('+v.amt+' ر.س)',v.a));
+ (e.ex.r||[]).filter(r=>r.s==='متأخر').forEach(r=>add('bd','متطلب متأخر: '+r.n,r.a));
+ (x.fees||[]).filter(f=>f.s!=='مسددة').forEach(f=>add('wr','رسوم مستحقة: '+f.n+' ('+f.amt+' ر.س)',f.a));
+ (x.acts||[]).filter(t=>t.l!=='مرخص').forEach(t=>add('wr','نشاط السجل «'+t.n+'»: '+t.l,'وزارة التجارة'));
+ (x.ct||[]).forEach(t=>{if(t.st==='غير موثق')add('wr','عقد '+t.r+' ('+t.id+') غير موثق في قوى','منصة قوى');if(t.st==='منتهٍ')add('bd','عقد '+t.r+' ('+t.id+') منتهٍ','منصة قوى');else{const k=dd(t.end);if(k>=0&&k<=60)add('wr','عقد '+t.r+' ('+t.id+') ينتهي خلال '+k+' يوم','منصة قوى')}});
+ (x.veh||[]).forEach(v=>{const i=dd(v.ins.end);if(i<0)add('bd','تأمين المركبة '+v.p+' منتهٍ منذ '+(-i)+' يوم','هيئة التأمين');else if(i<=30)add('wr','تأمين المركبة '+v.p+' ينتهي خلال '+i+' يوم','هيئة التأمين');if(dd(v.reg)<0)add('bd','استمارة المركبة '+v.p+' منتهية','المرور')});
+ if(e.zatca&&e.zatca.status==='غير مسجل')add('bd','المنشأة غير مسجلة لدى هيئة الزكاة والضريبة والجمارك',SN.zatca);
+ const o={bd:0,wr:1};return A.sort((p,q)=>o[p.s]-o[q.s])}
+const AC=()=>Object.keys(DB).reduce((q,k)=>q+alertsOf(DB[k]).length,0);
+const lk=n=>{const s=ALL.find(x=>x.n===n);return s?logo(s.k,16):''};
+function alList(A){if(!A.length)return '<p class="mute">لا توجد تنبيهات.</p>';
+ return [['bd','عاجل'],['wr','تنبيه']].map(g=>{const X=A.filter(t=>t.s===g[0]);return X.length?`<div class="ag"><div class="agh ${g[0]}"><span>${g[1]}</span><b>${X.length}</b></div>${X.map(t=>`<div class="ai"><span class="ad ${t.s}"></span><div class="at">${t.t}</div><span class="as">${lk(t.src)} ${t.src}</span></div>`).join('')}</div>`:''}).join('')}
+function alCard(e){const A=alertsOf(e),n1=A.filter(t=>t.s==='bd').length,n2=A.length-n1;return `<div class="card"><div class="row" style="margin-bottom:8px"><h3 style="margin:0">التنبيهات</h3>${n1?`<span class="tag bd">${n1} عاجل</span>`:''}${n2?`<span class="tag wr">${n2} تنبيه</span>`:''}${A.length?'':'<span class="tag ok">لا توجد</span>'}</div>${alList(A)}</div>`}
+function paysCard(e){PE=e;const L=pay(e),tot=L.reduce((q,p)=>q+p.amt,0);
+ return `<div class="card"><div class="row"><h3 style="margin:0">المستحقات والسداد</h3><span class="tag ${L.length?'bd':'ok'}">${L.length?L.length+' بنود مستحقة':'لا مستحقات'}</span></div>${L.length?`<div class="sx"><table><tr><th>البند</th><th>الجهة</th><th>المبلغ</th><th></th></tr>${L.map((p,i)=>`<tr><td>${p.n}</td><td>${p.a}</td><td>${p.amt.toLocaleString('ar-SA')} ر.س</td><td><button class="btn" style="padding:4px 14px;font-size:13px" onclick="payOpen(${i})">سداد</button></td></tr>`).join('')}</table></div><div class="row" style="margin-top:8px"><b>الإجمالي: ${tot.toLocaleString('ar-SA')} ر.س</b><button class="btn g noprint" onclick="payOpen(-1)">سداد الكل</button></div><p class="mute">السداد هنا محاكاة ولا يتم أي خصم فعلي.</p>`:'<p class="mute">لا توجد مبالغ مستحقة السداد.</p>'}</div>`}
+function alertsPay(e){return alCard(e)+paysCard(e)}
+function xblocks(e,a){const x=e.x||{ct:[],veh:[],acts:[]},cs=t=>t==='موثق'?'ok':t==='منتهٍ'?'bd':'wr',vd=d=>d<0?['منتهٍ','bd']:d<=30?['ينتهي قريبًا','wr']:['ساري','ok'],nd=x.ct.filter(c=>c.st==='موثق').length;
+ return alCard(e)
+ +`<div class="card"><div class="row">${logo('moc',26)}<h3 style="margin:0">أنشطة السجل التجاري</h3></div>${x.acts.length?`<div class="sx"><table><tr><th>النشاط</th><th>حالته في السجل</th><th>الترخيص البلدي</th><th>الإجراء</th></tr>${x.acts.map(t=>`<tr><td>${t.n}</td><td><span class="tag ok">${t.st}</span></td><td><span class="tag ${t.l==='مرخص'?'ok':'wr'}">${t.l}</span></td><td>${t.l==='مرخص'?'—':'استخراج ترخيص للنشاط أو تعديله في السجل'}</td></tr>`).join('')}</table></div>`:'<p class="mute">لا توجد أنشطة.</p>'}</div>`
+ +`<div class="card"><div class="row">${logo('qiwa',26)}<h3 style="margin:0">عقود الموظفين (منصة قوى)</h3><span class="tag ${nd===x.ct.length?'ok':'wr'}">${nd} من ${x.ct.length} موثقة</span></div>${x.ct.length?`<div class="sx"><table><tr><th>الوظيفة</th><th>رقم العقد</th><th>الحالة في قوى</th><th>ينتهي</th></tr>${x.ct.map(c=>`<tr><td>${c.r}</td><td dir="ltr">${c.id}</td><td><span class="tag ${cs(c.st)}">${c.st}</span></td><td>${c.end}</td></tr>`).join('')}</table></div>`:'<p class="mute">لا توجد عقود مسجلة.</p>'}<p class="mute" style="margin-top:6px">بيانات تجريبية بدون أسماء أو هويات.</p></div>`
+ +`<div class="card"><div class="row">${logo('traffic',26)}${logo('ins',26)}<h3 style="margin:0">المركبات التابعة للمنشأة وتأمينها</h3></div>${x.veh.length?`<div class="sx"><table><tr><th>اللوحة</th><th>النوع</th><th>الاستمارة</th><th>التأمين</th><th>ينتهي</th></tr>${x.veh.map(c=>{const r=vd(dd(c.reg)),i=vd(dd(c.ins.end));return `<tr><td>${c.p}</td><td>${c.t}</td><td><span class="tag ${r[1]}">${r[0]}</span></td><td>${c.ins.ty} <span class="tag ${i[1]}">${i[0]}</span></td><td>${c.ins.end}</td></tr>`}).join('')}</table></div>`:'<p class="mute">لا توجد مركبات مسجلة للمنشأة.</p>'}</div>`}
+function payOpen(i){const L=pay(PE),S=i<0?L:[L[i]];if(!S.length||!S[0])return;const tot=S.reduce((q,p)=>q+p.amt,0);
+ $('#pm').style.display='grid';
+ $('#pmb').innerHTML=`<h3>سداد (محاكاة)</h3>${S.map(p=>`<p>${p.n} — <b>${p.amt.toLocaleString('ar-SA')} ر.س</b></p>`).join('')}<p><b>الإجمالي: ${tot.toLocaleString('ar-SA')} ر.س</b></p><div class="fm">${['مدى','Apple Pay','سداد'].map((m,k)=>`<label><input type="radio" name="pmth" ${k?'':'checked'} value="${m}"> ${m}</label>`).join('')}</div><p class="mute">بوابة سداد تجريبية، لا يتم أي خصم حقيقي.</p><div class="row"><button class="btn" id="pgo">تأكيد السداد</button><button class="btn g" onclick="payClose()">إلغاء</button></div>`;
+ $('#pgo').onclick=()=>{$('#pgo').disabled=true;$('#pgo').textContent='جاري المعالجة...';setTimeout(()=>{const m=document.querySelector('input[name=pmth]:checked').value,ref='PAY-'+Math.random().toString(36).slice(2,8).toUpperCase();
+  S.forEach(p=>{if(p.key==='renew'){p.ref.end='2027-10-13';p.ref.amt=0}else p.ref.s='مسددة';pays.push({t:new Date().toLocaleTimeString('ar-SA'),n:p.n,amt:p.amt,m,ref})});
+  $('#pmb').innerHTML=`<h3>تم السداد ✓</h3><p>رقم العملية: <b dir="ltr">${ref}</b></p><p class="mute">إيصال تجريبي عبر ${m}</p><button class="btn" onclick="payClose()">إغلاق</button>`},900)}}
+function payClose(){$('#pm').style.display='none';if(page==='report'){cur.a=analyze(cur.e);V.report()}else if(page==='ben')V.ben();nav()}
+/* ===== شعارات المنشآت (تمثيلية) + التنبيهات داخل النظام ===== */
+const ELC=['#0F5A44','#1D4ED8','#B45309','#6B3FA0','#0E7490','#9A3412'];
+const ELS=['<circle cx="20" cy="20" r="13" fill="#fff" fill-opacity=".22"/>','<path d="M20 5 35 20 20 35 5 20Z" fill="#fff" fill-opacity=".22"/>','<path d="M20 4 33 12v16L20 36 7 28V12Z" fill="#fff" fill-opacity=".22"/>','<path d="M20 5 36 34H4Z" fill="#fff" fill-opacity=".22"/>','<circle cx="20" cy="20" r="12" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="4"/>','<rect x="7" y="7" width="26" height="26" rx="6" fill="#fff" fill-opacity=".22"/>'];
+function elogo(no,z=40){const e=DB[no];if(!e)return '';const i=Object.keys(DB).indexOf(no)%6,w=e.balady.name.split(' ').filter(x=>!['مؤسسة','شركة','مركز'].includes(x))[0]||'م',ch=(w.startsWith('ال')&&w.length>2?w[2]:w[0]);
+ return `<svg width="${z}" height="${z}" viewBox="0 0 40 40" role="img" aria-label="شعار تمثيلي للمنشأة" style="flex:none;vertical-align:middle"><rect width="40" height="40" rx="9" fill="${ELC[i]}"/>${ELS[i]}<text x="20" y="26.5" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" font-family="IBM Plex Sans Arabic,Tahoma,sans-serif">${ch}</text></svg>`}
+function ntOpen(no){const e=DB[no],base='تنبيه من مِعيار: صلاحية تسجيل «'+e.balady.name+'» ستنتهي بعد 60 يومًا. يُرجى التجديد قبل الانتهاء.';
+ $('#pm').style.display='grid';
+ $('#pmb').innerHTML=`<h3>إرسال تنبيه إلى المنشأة</h3><p class="mute">يصل التنبيه إلى صندوق إشعارات المنشأة داخل النظام (محاكاة)، ويظهر في بوابة المستفيد. لا يتم إرسال أي رسالة خارجية.</p><label for="ntt" class="mute">نص التنبيه</label><textarea id="ntt" rows="4" style="width:100%;margin:6px 0">${esc(base)}</textarea><p class="mute" id="ntm"></p><div class="row"><button class="btn" id="ntgo">إرسال التنبيه</button><button class="btn g" onclick="ntClose()">إغلاق</button></div>`;
+ $('#ntgo').onclick=()=>ntSend(no)}
+function ntSend(no){const t=$('#ntt').value.trim();if(t.length<5){$('#ntm').style.color='var(--bad)';$('#ntm').textContent='اكتب نص التنبيه.';return}
+ notes.push({no,name:DB[no].balady.name,text:t,t:new Date().toLocaleTimeString('ar-SA')});
+ $('#pmb').innerHTML=`<h3>تم إرسال التنبيه ✓</h3><p class="mute">وصل إلى صندوق إشعارات «${esc(DB[no].balady.name)}» داخل النظام.</p><button class="btn" onclick="ntClose()">إغلاق</button>`}
+function ntClose(){$('#pm').style.display='none'}
+function notesCard(no){const L=notes.filter(n=>n.no===no);return `<div class="card"><h3>الإشعارات الواردة</h3>${L.length?L.slice().reverse().map(n=>`<div class="al wr"><span>${esc(n.text)}</span><span class="mute">${n.t}</span></div>`).join(''):'<p class="mute">لا توجد إشعارات.</p>'}</div>`}
+function pr(){try{window.print()}catch(x){alert('الطباعة غير متاحة في هذا العرض.')}}
+const STEPS=['البحث عن الرخصة في قاعدة البيانات التجريبية','استخراج رقم السجل التجاري والمعرفات المرتبطة','مطابقة المنشأة مع سجلات الجهات الأخرى','جمع البيانات المتاحة في ملف موحد','مقارنة الحقول المشتركة','اكتشاف التعارضات والنواقص والتنبيهات','إصدار التقرير الذكي'];
+function query(no,demo){if(busy)return;const er=$('#err');
+ if(!/^\d{6,10}$/.test(no)){er.textContent='أدخل رقم رخصة من 6 إلى 10 أرقام.';return}
+ const e=DB[no];if(!e){er.textContent='لم يتم العثور على رخصة بالرقم '+no+' في القاعدة التجريبية. جرّب أحد الأرقام المعروضة.';return}
+ busy=true;const a=analyze(e),b=e.balady,D=[`تم العثور على «${b.name}»`,`السجل التجاري ${e.moc.cr}`,`تمت المطابقة مع ${a.found} من 7 جهات`,`${a.filled} حقلًا من ${a.total} في ملف واحد`,`قورنت 3 مجموعات حقول (الاسم، العنوان، النشاط) وتواريخ الانتهاء`,`${a.conf} تعارضات، ${a.missing.length} نواقص، ${alertsOf(e).length} تنبيهات`,`جاهزية الملف: ${a.rd[0]}`];
+ page='run';nav();V.run();let i=0;
+ (function t(){$('#rb').innerHTML='<h2>جاري تنفيذ الاستعلام</h2>'+STEPS.map((s,k)=>k<i?`<div class="st"><span class="dot">✓</span><div>${s}<div class="mute">${esc(D[k])}</div></div></div>`:k===i?`<div class="st"><span class="dot sp"></span><div>${s}</div></div>`:'').join('');
+  if(i<STEPS.length){i++;setTimeout(t,550)}else{
+   cur=Object.assign(cur||{},{no,e,a,demo});logs.push({t:new Date().toLocaleTimeString('ar-SA'),no,name:b.name,who:$('#role').value==='emp'?'موظف':'مستفيد',avoided:a.avoided,found:a.found,conf:a.conf,rd:a.rd,types:a.types});
+   busy=false;page='report';nav();V.report()}})()}
+go('home');
+</script>
+</body>
+</html>
